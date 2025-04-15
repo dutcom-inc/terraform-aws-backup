@@ -32,6 +32,7 @@ resource "aws_backup_selection" "default" {
 }
 
 resource "aws_backup_vault_notifications" "default" {
+  count = var.enable_backup_notifications ? 1 : 0
   backup_vault_name   = local.name_vault
   sns_topic_arn       = var.aws_sns_arn
   backup_vault_events = ["BACKUP_JOB_FAILED", "BACKUP_JOB_EXPIRED", "RESTORE_JOB_FAILED", "COPY_JOB_FAILED", "S3_BACKUP_OBJECT_FAILED", "S3_RESTORE_OBJECT_FAILED"]

@@ -61,3 +61,8 @@ variable "aws_sns_arn" {
   type = string
   default = null
 }
+
+variable "enable_backup_notifications" {
+  type        = bool
+  default     = false
+}
